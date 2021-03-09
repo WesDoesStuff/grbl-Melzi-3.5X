@@ -84,6 +84,20 @@ void limits_init()
       #if N_AXIS > 5
         MAX_LIMIT_PORT(5) &= ~(1<<MAX_LIMIT_BIT(5)); // Normal low operation. Requires external pull-down.
       #endif
+
+      // MIN_LIMIT_PORT(0) &= ~(1<<MIN_LIMIT_BIT(0)); // Normal low operation. Requires external pull-down.
+      // MIN_LIMIT_PORT(1) &= ~(1<<MIN_LIMIT_BIT(1)); // Normal low operation. Requires external pull-down.
+      // MIN_LIMIT_PORT(2) &= ~(1<<MIN_LIMIT_BIT(2)); // Normal low operation. Requires external pull-down.
+      // MIN_LIMIT_PORT(3) &= ~(1<<MIN_LIMIT_BIT(3)); // Normal low operation. Requires external pull-down.
+
+      // MAX_LIMIT_PORT(0) &= ~(1<<MAX_LIMIT_BIT(0)); // Normal low operation. Requires external pull-down.
+      // MAX_LIMIT_PORT(1) &= ~(1<<MAX_LIMIT_BIT(1)); // Normal low operation. Requires external pull-down.
+      // MAX_LIMIT_PORT(2) &= ~(1<<MAX_LIMIT_BIT(2)); // Normal low operation. Requires external pull-down.
+      // MAX_LIMIT_PORT(3) &= ~(1<<MAX_LIMIT_BIT(3)); // Normal low operation. Requires external pull-down.
+
+
+
+
     #else
       MIN_LIMIT_PORT(0) |= (1<<MIN_LIMIT_BIT(0));  // Enable internal pull-up resistors. Normal high operation.
       MIN_LIMIT_PORT(1) |= (1<<MIN_LIMIT_BIT(1));  // Enable internal pull-up resistors. Normal high operation.

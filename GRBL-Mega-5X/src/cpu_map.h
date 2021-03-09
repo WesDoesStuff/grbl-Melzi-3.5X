@@ -490,27 +490,27 @@
 
   // Define homing/hard limit switch input pins and limit interrupt vectors. 
   #define MIN_LIMIT_PORT_0 C
-  #define MIN_LIMIT_PORT_1 C
-  #define MIN_LIMIT_PORT_2 C
-  #define MIN_LIMIT_PORT_3 C
-  #define MIN_LIMIT_BIT_0 2 // X Limit Min - Pin C2
-  #define MIN_LIMIT_BIT_1 3 // Y Limit Min - Pin C3
-  #define MIN_LIMIT_BIT_2 4 // Z Limit Min - Pin C4
-  #define MIN_LIMIT_BIT_3 3 // E Limit Min - Pin C3 - Y'
+  #define MIN_LIMIT_PORT_1 A
+  #define MIN_LIMIT_PORT_2 A
+  #define MIN_LIMIT_PORT_3 A
+  #define MIN_LIMIT_BIT_0 1 // X Limit Min - Pin C1
+  #define MIN_LIMIT_BIT_1 3 // Y Limit Min - Pin A3
+  #define MIN_LIMIT_BIT_2 1 // Z Limit Min - Pin A1
+  #define MIN_LIMIT_BIT_3 3 // E Limit Min - Pin A3 - Y'
   #define _MIN_LIMIT_BIT(i) MIN_LIMIT_BIT_##i
   #define MIN_LIMIT_BIT(i) _MIN_LIMIT_BIT(i)
   #define MIN_LIMIT_DDR(i) _DDR(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PORT(i) _PORT(MIN_LIMIT_PORT_##i)
   #define MIN_LIMIT_PIN(i) _PIN(MIN_LIMIT_PORT_##i)
 
-  #define MAX_LIMIT_PORT_0 D
-  #define MAX_LIMIT_PORT_1 D
+  #define MAX_LIMIT_PORT_0 C
+  #define MAX_LIMIT_PORT_1 C
   #define MAX_LIMIT_PORT_2 C
-  #define MAX_LIMIT_PORT_3 D
+  #define MAX_LIMIT_PORT_3 A
   #define MAX_LIMIT_BIT_0 2 // X Limit Max - Pin D2 - Encoder Ch. A
   #define MAX_LIMIT_BIT_1 3 // Y Limit Max - Pin D3 - Encoder Ch. B
-  #define MAX_LIMIT_BIT_2 0 // Z Limit Max - Pin C0 - Encoder Button
-  #define MAX_LIMIT_BIT_3 3 // E Limit Max - Pin D3 - Encoder Ch. B - Y'
+  #define MAX_LIMIT_BIT_2 4 // Z Limit Max - Pin C0 - Encoder Button
+  #define MAX_LIMIT_BIT_3 7 // E Limit Max - Pin D3 - Encoder Ch. B - Y'
   #define _MAX_LIMIT_BIT(i) MAX_LIMIT_BIT_##i
   #define MAX_LIMIT_BIT(i) _MAX_LIMIT_BIT(i)
   #define MAX_LIMIT_DDR(i) _DDR(MAX_LIMIT_PORT_##i)
@@ -528,12 +528,12 @@
   // #define SPINDLE_DIRECTION_BIT   5 // D5
 
   // Define flood and mist coolant enable output pins.
-  #define COOLANT_FLOOD_DDR   DDRA
-  #define COOLANT_FLOOD_PORT  PORTA
-  #define COOLANT_FLOOD_BIT   6 // MEGA2560 Digital Pin 10 - Ramps 1.4 12v output
-  #define COOLANT_MIST_DDR    DDRA
-  #define COOLANT_MIST_PORT   PORTA
-  #define COOLANT_MIST_BIT    7 // MEGA2560 Digital Pin B4 - Ramps 1.4 12v output
+  #define COOLANT_FLOOD_DDR   DDRB
+  #define COOLANT_FLOOD_PORT  PORTB
+  #define COOLANT_FLOOD_BIT   4 // MEGA2560 Digital Pin 10 - Ramps 1.4 12v output
+  #define COOLANT_MIST_DDR    DDRD
+  #define COOLANT_MIST_PORT   PORTD
+  #define COOLANT_MIST_BIT    5 // MEGA2560 Digital Pin B4 - Ramps 1.4 12v output
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
@@ -549,11 +549,11 @@
   // #define CONTROL_PCMSK     PCMSK2 // Pin change interrupt register
   // #define CONTROL_MASK      ((1<<CONTROL_RESET_BIT)|(1<<CONTROL_FEED_HOLD_BIT)|(1<<CONTROL_CYCLE_START_BIT)|(1<<CONTROL_SAFETY_DOOR_BIT))
 
-  // Define probe switch input pin. BEEPER = A4
+  // Define probe switch input pin. BEDTEMP = A6
   #define PROBE_DDR       DDRA
   #define PROBE_PIN       PINA
   #define PROBE_PORT      PORTA
-  #define PROBE_BIT       4  // MEGA2560 Analog Pin 15
+  #define PROBE_BIT       6  // MEGA2560 Analog Pin 15
   #define PROBE_MASK      (1<<PROBE_BIT)
 
   // Advanced Configuration Below You should not need to touch these variables
