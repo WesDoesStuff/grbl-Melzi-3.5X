@@ -1,5 +1,7 @@
 #  Part of Grbl
 #
+#  Copyright (c) 2024 Wesley Smoyak
+#  Copyright (c) 2017-2022 Gauthier Briere
 #  Copyright (c) 2009-2011 Simen Svale Skogsrud
 #  Copyright (c) 2012-2015 Sungeun K. Jeon
 #
@@ -28,15 +30,19 @@
 #                is connected.
 # FUSES ........ Parameters for avrdude to flash the fuses appropriately.
 
-DEVICE     ?= atmega2560
+DEVICE     ?= atmega1284p
 CLOCK      = 16000000L
-###PROGRAMMER ?= -c avrisp2 -P usb
-PROGRAMMER ?= -D -v -c avrisp2 -P /dev/ttyUSB0
-SOURCE    = main.c motion_control.c gcode.c spindle_control.c coolant_control.c serial.c \
-             protocol.c stepper.c eeprom.c settings.c planner.c nuts_bolts.c limits.c \
-             print.c probe.c report.c system.c sleep.c jog.c
+
+DEVICE_PORT ?= /dev/ttyUSB0
+PROGRAMMER ?= -D -v -c avrisp2 -P $(DEVICE_PORT)
+
+SOURCE    = main.c motion_control.c gcode.c spindle_control.c coolant_control.c digital_control.c\
+            analog_control.c serial.c protocol.c stepper.c eeprom.c settings.c planner.c nuts_bolts.c\
+            limits.c print.c probe.c report.c system.c sleep.c jog.c
+
 BUILDDIR = build
-SOURCEDIR = grbl
+SOURCEDIR = GRBL-Melzi
+
 # FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 FUSES      = -U hfuse:w:0xd2:m -U lfuse:w:0xff:m
 

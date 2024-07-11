@@ -1,7 +1,31 @@
-![GitHub Logo](https://github.com/fra589/grbl-Mega-5X/blob/edge/doc/images/Mega-5X-logo.svg)
+
+
+This is a modified version of fra589/grbl-Mega-5X/ (cloned 07/11/2024) then modified in the same way as the original Ender 3 control board 1.1.4 Atmega1284p port from vectorcrumb/grbl-Melzi-3.5X/
+Needed a little more love and attention and seems to work fine. 
+
+Copy GRBL-Melzi to your arduino libraries folder.
+Open Arduino IDE (I used version 2.3.2) and open the example (File > Examples > GRBL-Melzi > grblUpload)
+
+You will need to add the board to the Arduino IDE. I have created a fork of Lauszus/Sanguino/ and modified it to be compatible with Arduino IDE version 2.3.2 as the original would not work. 
+I only did as much to get it working for the Atmega1284p 8MHz and 16MHz versions but its easy enough to get the rest of the boards in if needed. This should handle the optiboot bootloader for the 1.1.4 board.
+
+Connect the board to your computer. preferrably without any other power attached to the board. My board was already removed from my printer when I flashed it. (I upgraded my ender with an skr mini e3 v3 running klipper on a raspberry pi with mainsail and I highly recomend you do the same.)
+Add the following url: https://raw.githubusercontent.com/WesDoesStuff/Sanguino/master/package_wesdoesstuff_sanguino_index.json to the Arduino boards manager. 
+
+Choose the "Sanguino Atmega1284X 16MHz" board and the apropriate com port. 
+Compile and upload. 
+
+You will know it was successful by opening the serial monitor (baud rate 115200) and you should see the GRBL start up message:
+  Grbl 1.2h ['$' for help]
+  [MSG:'$H'|'$X' to unlock]
+
+From there you can close the IDE and connect to it with your gcode sender of choice. I'm planning on using LaserGRBL.
 
 ***
 
+![GitHub Logo](https://github.com/fra589/grbl-Mega-5X/blob/edge/doc/images/Mega-5X-logo.svg)
+
+***
 Grbl is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. This version of Grbl runs on an Arduino Mega2560 only.
 
 The controller is written in highly optimized C utilizing every clever feature of the AVR-chips to achieve precise timing and asynchronous operation. It is able to maintain up to 30kHz of stable, jitter free control pulses.
@@ -12,7 +36,7 @@ Grbl includes full acceleration management with look ahead. That means the contr
 
 * [Licensing](https://github.com/fra589/grbl-Mega-5X/blob/edge/COPYING): Grbl is free software, released under the GPLv3 license.
 
-* For more information and help, check out our **[Wiki pages!](https://github.com/gnea/grbl/wiki)** If you find that the information is out-dated, please to help us keep it updated by editing it or notifying our community! Thanks!
+* For more information and help, check out our **[Wiki pages!](https://github.com/fra589/grbl-Mega-5X/wiki)** If you find that the information is out-dated, please to help us keep it updated by editing it or notifying our community! Thanks!
 
 * Lead Developer: Gauthier Brière (France) aka @fra589
 
@@ -71,7 +95,4 @@ List of Supported G-Codes in Grbl v1.1:
 ```
 
 -------------
-Grbl-Mega-5X is an open-source project and fueled by the free-time of our intrepid administrators and altruistic users. If you'd like to donate, all proceeds will be used to help fund supporting hardware and testing equipment. Thank you!
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://paypal.me/pools/c/842hNSm2It)
-
+Grbl-Melzi is an open-source project and fueled by the free-time of our intrepid administrators and altruistic users. If you'd like to donate, all proceeds will be used to help fund supporting hardware and testing equipment. Thank you! [![Donate]()]()
