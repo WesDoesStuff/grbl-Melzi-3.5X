@@ -8,9 +8,9 @@ Open Arduino IDE (I used version 2.3.2) and open the example (File > Examples > 
 
 You will need to add the board to the Arduino IDE. I have created a fork of Lauszus/Sanguino/ and modified it to be compatible with Arduino IDE version 2.3.2 as the original would not work. 
 I only did as much to get it working for the Atmega1284p 8MHz and 16MHz versions but its easy enough to get the rest of the boards in if needed. This should handle the optiboot bootloader for the 1.1.4 board.
+Add the following url: https://raw.githubusercontent.com/WesDoesStuff/Sanguino/master/package_wesdoesstuff_sanguino_index.json to the Arduino boards manager. 
 
 Connect the board to your computer. preferrably without any other power attached to the board. My board was already removed from my printer when I flashed it. (I upgraded my ender with an skr mini e3 v3 running klipper on a raspberry pi with mainsail and I highly recomend you do the same.)
-Add the following url: https://raw.githubusercontent.com/WesDoesStuff/Sanguino/master/package_wesdoesstuff_sanguino_index.json to the Arduino boards manager. 
 
 Choose the "Sanguino Atmega1284X 16MHz" board and the apropriate com port. 
 Compile and upload. 
